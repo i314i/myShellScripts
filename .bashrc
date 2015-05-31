@@ -94,8 +94,12 @@ alias sr='su root'
 alias his='history'
 
 #apache開啟關閉
-alias apstt='sudo /etc/init.d/apache2 restart'
+alias apstt='sudo /etc/init.d/apache2 start'
 alias apstp='sudo /etc/init.d/apache2 stop'
+
+#ftp開啟關閉
+alias ftpstt='sudo service vsftpd start'
+alias ftpstp='sudo service vsftpd stop'
 
 #一些cd設定
 alias cdld='cd ~/linux_diary/'
