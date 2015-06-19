@@ -108,6 +108,69 @@ alias ....='cd ../../..'
 alias ...='cd ../..'
 alias ..='cd ..'
 
+#玩三國殺
+QSanguosha(){
+    cd ~/Downloads/QSanguosha-master/
+    ./QSanguosha
+}
+
+#git
+ginit(){
+    git init;
+    git remote add origin "https://github.com/i314i/$1.git"
+}
+gadd(){
+    if [ "$#" -eq 0 ] ; then #if no filename then push all directory
+            git add .
+    else
+            git add $1
+    fi
+}
+alias gcommit='git commit'
+gpush(){
+    if [ "$#" -eq 0 ];then #default push origin master
+            git push origin master
+    elif [ "$1" == '-o' ];then
+            git push origin $2
+    elif [ "$1" == '-m' ];then
+            git push $2 master
+    else
+            git push $1 $2
+    fi
+}
+gpull(){
+    if [ "$#" -eq 0 ] ; then #default push origin master
+            git pull origin master
+    elif [ "$1" == '-o' ];then
+            git pull origin $2
+    elif [ "$1" == '-m' ];then
+            git pull $2 master
+    else
+            git pull $1 $2
+    fi
+}
+gquick(){
+    gadd 
+    gcommit
+    gpush
+}
+#copy to local git repository
+glocal(){
+    cp -r $1 $2
+}
+gstatus(){
+    if [ "$#" -eq 0 ] ; then 
+            git status
+    elif [ "$1" == '-s' ] || [ "$1" == '-S' ] || [ "$1" == 's' ] || [ "$1" == 'S' ]; then
+            git status -s
+    fi     
+}
+gunstage(){
+        git reset HEAD --
+}
+glast(){
+        git log -1 HEAD
+}
 #安裝檔案
 instl(){
     sudo apt-get install $1
@@ -128,7 +191,6 @@ llg(){
 function mindate(){
     echo "( $(date +%s -d $(date '+%Y%m%d') ) - $(date +%s -d 20150501 ) )/86400+1" | bc 
 }
-
 #解壓縮
 function extract () {
         if [ -f $1 ] ; then
@@ -141,7 +203,7 @@ function extract () {
                         *.tar)              tar xf $1           ;;
                         *.tbz2)             tar xjf $1          ;;
                         *.tgz)              tar xzf $1          ;;
-                        *.zip)              nzip $1             ;;
+                        *.zip)              unzip $1             ;;
                         *.Z)                uncompress $1       ;;
                         *)                  echo "'$1' cannot be extracted via extract()" ;;
                  esac
