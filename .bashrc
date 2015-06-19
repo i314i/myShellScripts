@@ -154,10 +154,6 @@ gquick(){
     gcommit
     gpush
 }
-#copy to local git repository
-glocal(){
-    cp -r $1 $2
-}
 gstatus(){
     if [ "$#" -eq 0 ] ; then 
             git status
