@@ -97,6 +97,10 @@ alias his='history'
 alias apstt='sudo /etc/init.d/apache2 start'
 alias apstp='sudo /etc/init.d/apache2 stop'
 
+#資料庫開啟關閉
+alias sqlstt='sudo /etc/init.d/mysql start'
+alias sqlstp='sudo /etc/init.d/mysql stop'
+
 #ftp開啟關閉
 alias ftpstt='sudo service vsftpd start'
 alias ftpstp='sudo service vsftpd stop'
@@ -116,26 +120,30 @@ QSanguosha(){
 
 #git
 ginit(){
-    git init;
-    git remote add origin "https://github.com/i314i/$1.git"
+    if [ "$#" -eq 1 ] ; then
+        git init;
+        git remote add origin "https://github.com/i314i/$1.git"
+    else 
+            echo "Please enter remote git repository name!!"
+    fi
 }
 gadd(){
     if [ "$#" -eq 0 ] ; then #if no filename then push all directory
-            git add .
+            git add -A .
     else
             git add $1
     fi
 }
-alias gcommit='git commit'
+alias gcommit='git commit -a'
 gpush(){
     if [ "$#" -eq 0 ];then #default push origin master
-            git push origin master
-    elif [ "$1" == '-o' ];then
-            git push origin $2
-    elif [ "$1" == '-m' ];then
-            git push $2 master
-    else
-            git push $1 $2
+            git push origin HEAD
+    #elif [ "$1" == '-o' ];then
+            #git push origin $2
+    #elif [ "$1" == '-m' ];then
+            #git push $2 master
+    #else
+            #git push $1 $2
     fi
 }
 gpull(){
@@ -166,6 +174,13 @@ gunstage(){
 }
 glast(){
         git log -1 HEAD
+}
+gremote(){
+        if [ "$#" -eq 0 ]; then
+            git remote
+        elif [ "$1" == '-v' ] || [ "$1" == '-V' ] || [ "$1" == 'v' ] || [ "$1" == 'V' ]; then
+                git remote -v
+        fi     
 }
 #安裝檔案
 instl(){
@@ -228,3 +243,4 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 . /etc/bash_completion
 fi
+export PATH="$HOME/node-v0.12.7-linux-x86/bin:$PATH"
