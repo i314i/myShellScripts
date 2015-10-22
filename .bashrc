@@ -112,6 +112,8 @@ alias ....='cd ../../..'
 alias ...='cd ../..'
 alias ..='cd ..'
 
+#開ISE
+alias ise='~/ISE/14.7/ISE_DS/ISE/bin/lin64/ise'
 #玩三國殺
 QSanguosha(){
     cd ~/Downloads/QSanguosha-master/
@@ -243,4 +245,5 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 . /etc/bash_completion
 fi
-export PATH="$HOME/node-v0.12.7-linux-x86/bin:$PATH"
+export PATH="$HOME/node-v0.12.7-linux-x86/bin:$PATH:/usr/local/lib/LabVIEW-2013/"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib/LabVIEW-2013/"
