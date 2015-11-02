@@ -16,13 +16,13 @@ basefile5=$basedir/NCTU.tar.bz2
 
 cd /var/www
   tar -jpc -f $basefile1 html
-cd myhome
+cd $myhome
   tar -jpc -f $basefile2 Downloads
-cd myhome
+cd $myhome
   tar -jpc -f $basefile3 win_ubuntu_share
-cd myhome
+cd $myhome
   tar -jpc -f $basefile4 Desktop
-cd myhome
+cd $myhome
   tar -jpc -f $basefile5 hungi/NCTU
 
 cd $basedir
