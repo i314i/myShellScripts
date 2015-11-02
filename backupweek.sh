@@ -1,8 +1,8 @@
 #!/bin/bash
 # =========================================================
-date="$(date +'%Y.%m.%y')"
-basedir=~/MEGA/backup/backupweek/backwk_$date
-
+date=$(date +%Y.%m.%d)
+basedir=/home/i314i/MEGA/backup/backupweek/backwk_$date
+myhome=/home/i314i
 # =========================================================
 PATH=/bin:/usr/bin:/sbin:/usr/sbin; export PATH
 export LANG=C
@@ -16,13 +16,13 @@ basefile5=$basedir/NCTU.tar.bz2
 
 cd /var/www
   tar -jpc -f $basefile1 html
-cd ~
+cd myhome
   tar -jpc -f $basefile2 Downloads
-cd ~
+cd myhome
   tar -jpc -f $basefile3 win_ubuntu_share
-cd ~
+cd myhome
   tar -jpc -f $basefile4 Desktop
-cd ~
+cd myhome
   tar -jpc -f $basefile5 hungi/NCTU
 
 cd $basedir
