@@ -1,7 +1,7 @@
 #!/bin/bash
 # ====================================================================
 date="$(date +'%Y.%m.%d')"
-basedir=/home/i314i/MEGA/backup/backupmonth/backmn_$date
+basedir=/home/i314i/application/MEGA/backup/backupmonth/backmn_$date
 
 # ====================================================================
 PATH=/bin:/usr/bin:/sbin:/usr/sbin; export PATH

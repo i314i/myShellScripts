@@ -1,7 +1,7 @@
 #!/bin/bash
 # =========================================================
 date=$(date +%Y.%m.%d)
-basedir=/home/i314i/MEGA/backup/backupweek/backwk_$date
+basedir=/home/i314i/application/MEGA/backup/backupweek/backwk_$date
 myhome=/home/i314i
 # =========================================================
 PATH=/bin:/usr/bin:/sbin:/usr/sbin; export PATH
